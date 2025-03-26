@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    white-space: nowrap;
+    background: transparent;
+    padding: 10px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.marquee-content {
+    display: flex;
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.marquee-content div {
+    color: white;
+    font-size:15px;
+    padding: 0 20px;
+}

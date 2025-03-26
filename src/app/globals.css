@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --background-gradiant:linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0.05));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255,0;
+    --background-start-rgb: 255,255,255,0.05;
+    --background-end-rgb: 255, 255, 255,0.3;
+  }
+}
+
+@font-face {
+  font-family: 'estedad';
+  src: url('/Fonts/Estedad-Medium.ttf');
+}
+
+body {
+  background-color: black;
+  color: rgb(var(--foreground-rgb));
+  background:#0f0f0f;
+  direction: rtl;
+  color: #fff;
+}
+
+body::after{
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 500px;
+  border-radius: 50%;
+  width: 500px;
+  height:500px;
+  background: rgb(255, 255, 255);
+  z-index: -1;
+  filter: blur(100px);
+  opacity:0.1;
+  animation: afterMove 10s linear infinite;
+
+}
+.animated{
+  animation-duration: 5s;
+}
+@keyframes afterMove{
+  0%{
+    transform: translate(0,0);
+  }50%{
+    transform: translate(100px,0);
+  }100%{
+    transform: translate(0,0);
+    
+  }
+}
+
+
+*{
+  font-family: 'estedad';
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+
+
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 2s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.shadow-Box::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: -1;
+  background-image: linear-gradient(120deg, rgb(24, 24, 24), #131010);
+}
+.shadow-Box{
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #ffffff10;
+  border-radius: 30px;
+}
+
+.LinkBtn{
+  opacity: 0.5;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.LinkBtn:hover{
+  opacity: 1;
+}
+
+.slideIn{
+  animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px);
+    opacity: 0;
+    display: none;
+  }
+}
