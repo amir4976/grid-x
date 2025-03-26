@@ -1,24 +1,14 @@
-'use client'
-import {react, useEffect,useState } from "react";
+import {React } from "react";
 import ProjectCard from "@/components/Templates/ProjectsCard/ProjectCard";
 import Image from "next/image";
+import ConnectToDb from "@/utils/ConnectToDb";
+import Projects from "@/models/Projects";
 
 
-function myWork() {
-  const [allProjects, setAllProjects] = useState([]);
+async function myWork() {
+    ConnectToDb()
+    const allProjects = await Projects.find({});
 
-  useEffect(()=>{
-    const getData = async()=>{
-    const res = await fetch("/api/Project",{ next: { revalidate: 0 } })
-    const data = await res.json()
-    if(res.ok){
-      setAllProjects(data)
-    }
-      
-  }
-  getData();
-  
-},[])
     return (
 
     <div className="mt-16">
