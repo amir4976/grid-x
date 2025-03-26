@@ -37,7 +37,7 @@ function Navbar() {
         </ul>
       </div>
       <div className="contact">
-        <Link href={'/ContactMe'} className="px-5 py-4 rounded-xl text-white transition-all hover:bg-white hover:text-black bg-gradient-to-r from-[rgba(255,255,255,0.15)] to-[rgba(255,255,255,0.05)]">
+        <Link href={'/ContactMe'} className="px-5 py-2 rounded-xl text-white transition-all hover:bg-white hover:text-black bg-gradient-to-r from-[rgba(255,255,255,0.15)] to-[rgba(255,255,255,0.05)]">
          بیا صحبت کنیم
         </Link>
       </div>
