@@ -3,7 +3,6 @@ import React from 'react'
 import Link from 'next/link'
 
 function ProjectCard({img,title,desc,link}) {
-  console.log(link)
   return (
     <div className=' w-full h-fit  col-span-1 shadow-Box p-3 mt-5' data-aos="zoom-in">
       <div className="w-full h-fit relative">
@@ -14,7 +13,7 @@ function ProjectCard({img,title,desc,link}) {
             <p className='text-xl font-bold mt-3'>{title}</p>
             <p className='text-sm text-gray-500'>{desc}</p>
         </div>
-        <Link href={`${process.env.NEXT_PUBLIC_MAIN_PATH}/My-works/${link}`} >
+        <Link href={`/My-works/${link}`} >
         <Image src={'/icon.svg'} alt='star' width={50} height={50} className=' opacity-35 rotate-180 hover:opacity-100 transition-all'/>
         </Link>
         </div>
