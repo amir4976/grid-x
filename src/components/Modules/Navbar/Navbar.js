@@ -13,7 +13,7 @@ function Navbar() {
   const route = usePathname()
   
   return (<>
-    <div className="w-full h-20 px-4  justify-between items-center mt-4 hidden md:flex">
+    <div className="w-full h-16 px-4  justify-between items-center mt-4 hidden md:flex">
       <div className="logo">
         <Image src={"/logo.svg"} alt="logo" width={70} height={70} />
       </div>
