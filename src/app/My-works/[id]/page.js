@@ -5,6 +5,7 @@ import Image from "next/image";
 import ConnectToDb from "@/utils/ConnectToDb";
 import ProjectModel from "@/models/Projects";
 import { redirect } from "next/navigation";
+import Bradcramp from "@/components/Modules/bradcramp/Bradcramp";
 
 async function page({params}) {
   const {id} = params;
@@ -15,10 +16,7 @@ async function page({params}) {
   return (
     <div className=" ">
       {/* title */}
-      <div className="mt-16">
-        <p className="text-gray-500">برندینگ - استدیو ریون</p>
-        <StarTitle title={proj.title} />
-      </div>
+      <Bradcramp title={proj.projectKind + "-" + proj.title}/>
       {/* title end */}
       {/* cover */}
       <div className="rounded-xl  w-full right-0 mt-5 z-0 flex ">
