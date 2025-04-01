@@ -1,16 +1,22 @@
-import {React } from "react";
+"use client";
+import { React, useEffect, useState } from "react";
 import ProjectCard from "@/components/Templates/ProjectsCard/ProjectCard";
 import Image from "next/image";
-import ConnectToDb from "@/utils/ConnectToDb";
-import Projects from "@/models/Projects";
 
+function MyWork() {
+  const [allProjects, setAllProjects] = useState([]);
+  useEffect( () => {
+     const getAllProjects = async () => {
+      const res = await fetch("/api/Project", {
+        method: "GET",
+      });
+      const data = await res.json();
+      setAllProjects(data);
+    };
+    getAllProjects();
+  }, []);
 
-async function myWork() {
-    ConnectToDb()
-    const allProjects = await Projects.find({});
-
-    return (
-
+  return (
     <div className="mt-16">
       <div className="page-title flex items-center">
         <div className="star">
@@ -40,4 +46,4 @@ async function myWork() {
   );
 }
 
-export default myWork;
+export default MyWork;
