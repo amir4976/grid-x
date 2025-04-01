@@ -1,5 +1,5 @@
 "use server";
-import cloudinary from "@/utils/cloudinary";
+import cloudinary from "@/lib/cloudinary";
 
 export async function uploadProjectAction(formData: FormData) {
   try {
