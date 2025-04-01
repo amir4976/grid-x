@@ -1,75 +1,79 @@
 import ConnectToDb from "@/utils/ConnectToDb";
 import ProjectModel from "@/models/Projects";
-import cloudinary from "@/lib/cloudinary"; // اضافه کردن اتصال به Cloudinary
+
+
+
+
 
 export async function GET() {
   try {
     ConnectToDb();
     const AllData = await ProjectModel.find({}).lean();
+    console.log(AllData);
     return new Response(JSON.stringify(AllData), { status: 200 });
   } catch (error) {
     return new Response(
-      JSON.stringify({ message: "خطا در دریافت پروژه‌ها", error: error.message }),
+      JSON.stringify({
+        message: "خطا در دریافت پروژه‌ها",
+        error: error.message,
+      }),
       { status: 500 }
     );
   }
 }
 
+
 export async function POST(req: Request) {
   try {
+    // اتصال به دیتابیس
     ConnectToDb();
 
+    // دریافت داده‌های فرم
     const formData = await req.formData();
-    const textFields = {
-      title: formData.get("title") as string,
-      servisekind: formData.get("servisekind") as string,
-      projectKind: formData.get("projectKind") as string,
-      Year: formData.get("Year") as string,
-      ClientName: formData.get("ClientName") as string,
-      ProjectDescription: formData.get("ProjectDescription") as string,
-      aboutClient: formData.get("aboutClient") as string,
-      AboutProject: formData.get("AboutProject") as string,
-    };
+ 
+    // فایل‌ها را از فرم بگیرید
+    const filesToUpload = [
+      formData.get("ProjectCover"),
+      formData.get("ProjectPageCover"),
+      formData.get("image1"),
+      formData.get("image2"),
+      formData.get("image3"),
+    ]; // حذف مقادیر null و تبدیل به آرایه از File
+    
+    console.log("Files to upload:", filesToUpload);
 
-    // آپلود تصاویر به Cloudinary
-    const imageUploadPromises = [
-      "ProjectCover", "ProjectPageCover", "image1", "image2", "image3"
-    ].map(async (field) => {
-      const file = formData.get(field) as File;
-      if (file) {
-        const arrayBuffer = await file.arrayBuffer();
-        const buffer = Buffer.from(arrayBuffer);
 
-        return new Promise<string>((resolve, reject) => {
-          cloudinary.uploader.upload_stream({ folder: "projects" }, (error, result) => {
-            if (error) reject(error);
-            else resolve(result?.secure_url || "");
-          }).end(buffer);
-        });
-      }
-      return null;
-    });
+    // اطلاعات متنی دیگر
+    const title = formData.get("title");
+    const servisekind = formData.get("servisekind");
+    const projectKind = formData.get("projectKind");
+    const Year = formData.get("Year");
+    const ClientName = formData.get("ClientName");
+    const ProjectDescription = formData.get("ProjectDescription");
+    const aboutClient = formData.get("aboutClient");
+    const AboutProject = formData.get("AboutProject");
 
-    const imageUrls = await Promise.all(imageUploadPromises);
-
-    // ذخیره اطلاعات پروژه در دیتابیس
-    const newProject = await ProjectModel.create({
-      ...textFields,
-      ProjectCover: imageUrls.filter(Boolean)[0], // فقط URL‌های معتبر را ذخیره می‌کنیم
-      ProjectPageCover: imageUrls.filter(Boolean)[1], // فقط URL‌های معتبر را ذخیره می‌کنیم
-      image1: imageUrls.filter(Boolean)[2], // فقط URL‌های معتبر را ذخیره می‌کنیم
-      image2: imageUrls.filter(Boolean)[3], // فقط URL‌های معتبر را ذخیره می‌کنیم
-      image3: imageUrls.filter(Boolean)[4], // فقط URL‌های معتبر را ذخیره می‌کنیم
-    });
+    // ذخیره اطلاعات پروژه در دیتابیس (اینجا فقط مسیرهای آپلود شده رو ذخیره می‌کنیم)
+    // const Project = await ProjectModel.create({
+    //   title,
+    //   servisekind,
+    //   projectKind,
+    //   Year,
+    //   ClientName,
+    //   ProjectDescription,
+    //   aboutClient,
+    //   AboutProject,
+    //   images: uploadedFiles.map(file => file.url), // ذخیره URL فایل‌های آپلود شده
+    // });
 
     return new Response(
-      JSON.stringify({ message: "پروژه با موفقیت ایجاد شد", data: newProject }),
+      JSON.stringify({ message: "Project created successfully", data: 'Project' }),
       { status: 201 }
     );
   } catch (error) {
     console.log(error);
     return new Response(
-      JSON.stringify({ message: "خطا در ایجاد پروژه", error: error.message }),
+      JSON.stringify({ message: "Something went wrong", error: error.message }),
       { status: 500 }
     );
   }

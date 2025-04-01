@@ -31,7 +31,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/p-admin/CreateNewProject/page.tsx"  ],
+, "src/app/p-admin/CreateNewProject/page.tsx", "src/app/api/Project/route.tsx"  ],
   "exclude": [
     "node_modules"
   ]
