@@ -52,26 +52,23 @@ async function page({params}) {
       <div className=" w-full h-fit mt-10">
         <Image
           src={proj.image1}
-          width={0}
-          height={0}
-          sizes="100vw"
+          width={500}
+          height={500}
           style={{ width: "100%", height: "auto", borderRadius: "20px" }}
         />
         <div className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-2">
           <Image
             src={proj.image2}
             className="cols-span-1"
-            width={0}
-            height={0}
-            sizes="100vw"
+            width={500}
+            height={500}
             style={{ width: "100%", height: "auto", borderRadius: "20px" }}
           />
           <Image
             src={proj.image3}
             className="cols-span-1"
-            width={0}
-            height={0}
-            sizes="100vw"
+            width={500}
+            height={500}
             style={{ width: "100%", height: "auto", borderRadius: "20px" }}
           />
         </div>
