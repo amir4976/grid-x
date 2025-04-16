@@ -47,13 +47,13 @@ To run this project locally, follow these steps:
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/amir4976/grid-x.git
    ```
 
 2. **Navigate to the project directory**:
 
    ```bash
-   cd your-repo-name
+   cd grid-x
    ```
 
 3. **Install dependencies**:
@@ -124,9 +124,9 @@ This project is licensed under the [MIT License](LICENSE).
 For inquiries or collaborations, feel free to reach out:
 
 - **Website**: [amir-ahmadi.vercel.app](https://amir-ahmadi.vercel.app/)
-- **Email**: [your-email@example.com](mailto:your-email@example.com)
+- **Email**: [your-email@example.com](mailto:amirhosianahmadi4976@gmail.com)
 - **LinkedIn**: [linkedin.com/in/yourprofile](https://www.linkedin.com/in/yourprofile)
-- **GitHub**: [github.com/yourusername](https://github.com/yourusername)
+- **GitHub**: [github.com/yourusername](https://github.com/amir4976)
 
 ---
 
