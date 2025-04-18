@@ -36,7 +36,7 @@ export default function Home() {
                 </div>
               <div className="relative w-52 h-52  rounded-br-3xl rounded-tl-3xl overflow-hidden  ">
                 <Image
-                  src={"/cover.jpg"}
+                  src={"/me/aboutmeImage.JPG"}
                   alt="logo"
                   width={500}
                   height={500}
