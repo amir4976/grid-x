@@ -7,6 +7,7 @@ import ProjectModel from "@/models/Projects";
 import { redirect } from "next/navigation";
 import Bradcramp from "@/components/Modules/bradcramp/Bradcramp";
 
+
 async function page({params}) {
   const {id} = params;
   ConnectToDb()
@@ -17,7 +18,9 @@ async function page({params}) {
     <div className=" ">
       {/* title */}
       <Bradcramp title={proj.projectKind + "-" + proj.title}/>
+      <StarTitle title={proj.title} />
       {/* title end */}
+
       {/* cover */}
       <div className="rounded-xl  w-full right-0 mt-5 z-0 flex ">
         <div className="cover relative w-full h-[500px] max-md:h-[200px] rounded-xl  ">
