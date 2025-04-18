@@ -135,9 +135,12 @@ export default function Home() {
           data-aos-once="true"
         >
           <div className="w-full h-full flex flex-col justify-between items-center ">
+            <Link href={"/MyResume-72[www.cvbuilder.me]995.pdf"}>
             <Image src="/gfonts.png" alt="about" width={300} height={300} />
             <div className="w-full flex justify-between items-center">
-              <span>وبلاگ</span>
+              <span>
+                دانلود رزومه
+              </span>
               <Image
                 src="/icon.svg"
                 alt="about"
@@ -146,6 +149,7 @@ export default function Home() {
                 className="rotate-180 LinkBtn"
               />
             </div>
+            </Link>
           </div>
         </div>
 
