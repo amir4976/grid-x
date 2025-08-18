@@ -1,4 +1,3 @@
-// app/mywork/page.tsx (یا هر مسیری که داری)
 import ProjectCard from "@/components/Templates/ProjectsCard/ProjectCard";
 import Image from "next/image";
 
