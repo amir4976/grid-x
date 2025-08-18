@@ -9,7 +9,6 @@ export async function GET() {
   try {
     ConnectToDb();
     const AllData = await ProjectModel.find({}).lean();
-    console.log(AllData);
     return new Response(JSON.stringify(AllData), { status: 200 });
   } catch (error) {
     return new Response(
