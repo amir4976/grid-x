@@ -3,7 +3,7 @@ import ProjectCard from "@/components/Templates/ProjectsCard/ProjectCard";
 import Image from "next/image";
 
 async function getAllProjects() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Project`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_MAIN_PATH}/api/Project`, {
     cache: "no-store", // یا "force-cache" اگر دیتات زیاد تغییر نمی‌کنه
   });
   return res.json();
