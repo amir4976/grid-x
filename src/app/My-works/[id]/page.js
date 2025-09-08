@@ -24,7 +24,7 @@ async function page({params}) {
       {/* cover */}
       <div className="rounded-xl  w-full right-0 mt-5 z-0 flex ">
         <div className="cover relative w-full h-[500px] max-md:h-[200px] rounded-xl  ">
-          <Image src={proj.ProjectPageCover} alt="cover" width={1000} height={500} className={'w-full h-full object-cover rounded-xl'} />
+          <Image src={proj.ProjectPageCover} alt="cover" width={1280} height={720} className={'w-full h-full object-cover rounded-xl'} />
         </div>
       </div>
       {/* cover end */}
@@ -55,23 +55,23 @@ async function page({params}) {
       <div className=" w-full h-fit mt-10">
         <Image
           src={proj.image1}
-          width={500}
-          height={500}
+          width={1920}
+          height={1080}
           style={{ width: "100%", height: "auto", borderRadius: "20px" }}
         />
         <div className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-2">
           <Image
             src={proj.image2}
             className="cols-span-1"
-            width={500}
-            height={500}
+            width={1280}
+            height={720}
             style={{ width: "100%", height: "auto", borderRadius: "20px" }}
           />
           <Image
             src={proj.image3}
             className="cols-span-1"
-            width={500}
-            height={500}
+            width={1280}
+            height={720}
             style={{ width: "100%", height: "auto", borderRadius: "20px" }}
           />
         </div>
