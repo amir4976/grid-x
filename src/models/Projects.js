@@ -1,4 +1,3 @@
-
 const mongoose = require("mongoose");
 
 const projectsSchema = mongoose.Schema(
@@ -36,8 +35,8 @@ const projectsSchema = mongoose.Schema(
       required: true,
     },
     ProjectCover: {
-        type:String,
-        required:true
+      type: String,
+      required: true,
     },
     ProjectPageCover: {
       type: String,
@@ -55,10 +54,15 @@ const projectsSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    link: {
+      type: String,
+      default: "/",
+    },
   },
   {
     timestamps: true,
   }
 );
 
-export default mongoose.models.Projects || mongoose.model("Projects", projectsSchema);
+export default mongoose.models.Projects ||
+  mongoose.model("Projects", projectsSchema);

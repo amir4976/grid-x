@@ -1,6 +1,6 @@
 
 import StarTitle from "@/components/Templates/StarTitle/StarTitle";
-import React from "react";
+
 import Image from "next/image";
 import ConnectToDb from "@/utils/ConnectToDb";
 import ProjectModel from "@/models/Projects";
@@ -13,12 +13,15 @@ async function page({params}) {
   ConnectToDb()
   const proj = await ProjectModel.findOne({_id:id});
   if(!proj) return redirect("/404")
+    console.log(proj.link)
+
+
 
   return (
     <div className=" ">
       {/* title */}
       <Bradcramp title={proj.projectKind + "-" + proj.title}/>
-      <StarTitle title={proj.title} />
+      <StarTitle title={proj.title} demoLink={proj.link} />
       {/* title end */}
 
       {/* cover */}
